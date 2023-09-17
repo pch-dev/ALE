@@ -7,27 +7,33 @@
 
       <div class="py-14" /> -->
       
-      <template v-if="state==='questions'">
+      <template v-if="state === 'start'">
+        Hello and welcome!
+        <v-btn @click="state = 'questions'">
+          Begin
+        </v-btn>
+      </template>
+      <template v-else-if="state==='questions'">
         <v-row class="d-flex">
-          <v-col cols="auto" v-model="currentQuestionId" v-if="currentQuestionId === 1">
-            <Question v-if="currentQuestionId" v-bind:question="getQuestionById(currentQuestionId)" v-bind:isFinalQuestion="isFinalQuestion" v-on:correctAnswer="nextQuestion()" v-on:proceed="state = 'congratz'" />
-          </v-col>
-          <v-col cols="auto" v-model="currentQuestionId" v-if="currentQuestionId === 2">
-            <Question v-if="currentQuestionId" v-bind:question="getQuestionById(currentQuestionId)" v-bind:isFinalQuestion="isFinalQuestion" v-on:correctAnswer="nextQuestion()" v-on:proceed="state = 'congratz'"/>
-          </v-col>
-          <v-col cols="auto" v-model="currentQuestionId" v-if="currentQuestionId === 3">
-            <Question v-if="currentQuestionId" v-bind:question="getQuestionById(currentQuestionId)" v-bind:isFinalQuestion="isFinalQuestion" v-on:correctAnswer="nextQuestion()" v-on:proceed="state = 'congratz'"/>
+          <v-col cols="auto" v-model="currentQuestionId">
+            <Question v-if="currentQuestionId" v-bind:question="getQuestionById(currentQuestionId)" v-bind:isFinalQuestion="isFinalQuestion" v-on:correctAnswer="nextQuestion()" v-on:proceed="state = 'results'" />
           </v-col>
         </v-row>
       </template>
-      <template v-else-if="state==='congratz'">
+      <template v-else-if="state==='results'">
         <div>Gratz!</div>
-        <v-btn @click="state = 'results'">
-          See results
+        <v-btn 
+          @click="state = 'reward'"
+          variant="outlined"
+          color="secondary"
+        >
+          Claim reward
         </v-btn>
       </template>
       <template v-else>
-        <div>AvadaKedavra!</div>
+        <v-img
+          src="@/assets/avada_kedavra.png"
+        ></v-img>
       </template>
     </v-responsive>
   </v-container>
@@ -42,7 +48,7 @@
   export default {
     data () {
       return {
-        state: "questions", // congratz, results
+        state: "start", // questions, results, reward
         currentQuestionId: 1,
         questionsCount: computed(() => this.questions.length),
         isFinalQuestion: computed(() => this.currentQuestionId === this.questionsCount),
@@ -54,7 +60,7 @@
               {
                 value: 1,
                 label: "Danske",
-                alertMessage: "Seriously? It's not even remotely believable"
+                alertMessage: "It's not even remotely believable. Why don't you give it another shot?"
               },
               {
                 value: 2,
@@ -64,12 +70,12 @@
               {
                 value: 3,
                 label: "Doclogix",
-                alertMessage: "Yeah right. Guess again!"
+                alertMessage: "Ha-ha-ha. Would be funny, if it wasn't sad."
               },
               {
                 value: 4,
-                label: "Wherever the fuck I currently work",
-                alertMessage: "You might want to reconsider. For your own sake!"
+                label: "Wherever the f*** I currently work",
+                alertMessage: "Now that can't be right, right? You might want to reconsider."
               }
             ],
             correctAnswer: 2
@@ -81,22 +87,22 @@
               {
                 value: 1,
                 label: "Maksim",
-                alertMessage: "After everything you've been through, that's your choice? I think not!"
+                alertMessage: "After everything you've been through, that's your choice?"
               },
               {
                 value: 2,
-                label: "Justas",
-                alertMessage: "Fact-check: false!"
+                label: "Jonas",
+                alertMessage: "If you don't believe this yourself, how can anybody else?"
               },
               {
                 value: 3,
                 label: "Kasparas",
-                alertMessage: "That was clearly a miss-click. I will give you another chance!"
+                alertMessage: "That was clearly a miss-click. You should correct this before it's too late."
               },
               {
                 value: 4,
                 label: "Pavel",
-                alertMessage: "Obviously, duh!"
+                alertMessage: "It is almost sweet how much you favor this one person over everyone else."
               }
             ],
             correctAnswer: 4
@@ -113,7 +119,7 @@
               },
               {
                 value: 2,
-                label: "Not terrible at all, but time will tell for sure",
+                label: "Pretty good right now, but time will tell for sure",
                 alertMessage: "",
                 isDisabled: true
               },
@@ -125,11 +131,66 @@
               },
               {
                 value: 4,
-                label: "I've made a terrible mistake, I understand it now, and regret my decision entirely.",
-                alertMessage: "Admitting one's mistakes is never late and simple enough. Forgiveness and redemption, on the other hand, will be much harder to acquire. Better to start sooner than later."
+                label: "I've made a terrible mistake, I understand it now and regret my decision entirely.",
+                alertMessage: "See, wasn't that hard! There is no shame in admitting one's mistakes. Forgiveness and redemption, on the other hand, will be much more difficult to acquire. Better start it sooner than later!"
               }
             ],
             correctAnswer: 4
+          },
+          {
+            id: 4,
+            question: "What do you appreciate the most in your colleagues?",
+            autoCorrect: true,
+            options: [
+              {
+                value: 1,
+                label: "Help",
+                alertMessage: ""
+              },
+              {
+                value: 2,
+                label: "Team work",
+                alertMessage: ""
+              },
+              {
+                value: 3,
+                label: "Harassment",
+                alertMessage: "Ah.. That is truly the purest form of social engagement, regardless of what company policies say"
+              },
+              {
+                value: 4,
+                label: "Jokes",
+                alertMessage: ""
+              }
+            ],
+            correctAnswer: 3
+          },
+          {
+            id: 5,
+            question: "Why did you decide to betray your colleagues?",
+            anyAnswer: true,
+            options: [
+              {
+                value: 1,
+                label: "I enjoy causing others pain",
+                alertMessage: "Like the pain you caused your own laptop when you spilled wine all over it?"
+              },
+              {
+                value: 2,
+                label: "I am selfish and greedy. I did this for the money",
+                alertMessage: "The overwhelming amount of \"Typical\" in this situation is nothing but depressing"
+              },
+              {
+                value: 3,
+                label: "I feared for my own life and had to run away",
+                alertMessage: "Then perhaps you should have found shelter in a company that builds spaceships."
+              },
+              {
+                value: 4,
+                label: "I did it for fun",
+                alertMessage: "I'm sure the paperwork was fun. I'm also sure that planes falling from the sky will be just as fun. Can't wait to read the news."
+              }
+            ]
           }
         ]
       }
@@ -141,10 +202,6 @@
       nextQuestion() {
         if(this.isFinalQuestion === false) {
           this.currentQuestionId += 1;
-          console.log("Current question id: " + this.currentQuestionId)
-        }
-        else {
-          console.log("see results?")
         }
       }
     }
