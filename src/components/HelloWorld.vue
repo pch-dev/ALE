@@ -102,7 +102,7 @@
               {
                 value: 4,
                 label: "Pavel",
-                alertMessage: "It is almost sweet how much you favor this one person over everyone else."
+                alertMessage: "It is almost adorable how much you favor this one person over everyone else."
               }
             ],
             correctAnswer: 4
