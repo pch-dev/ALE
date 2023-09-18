@@ -87,14 +87,14 @@
                         </v-card-text>
                         <v-card-actions>
                           <v-btn
-                            @click="isRevealed = true"
+                            @click="isRevealed = true; state = 'reward'"
                             variant="outlined"
                             color="primary"
                           >
                             Reveal
                           </v-btn>
                         </v-card-actions>
-                        <template v-if="isRevealed">
+                        <!-- <template v-if="isRevealed">
                           <v-card-actions>
                             <v-img
                               src="@/assets/avada_kedavra.png"
@@ -107,7 +107,7 @@
                           <v-card-text>
                             Thank you for taking part in this experimental personality test! Good luck!
                           </v-card-text>
-                        </template>
+                        </template> -->
                       </v-card>
                     </v-col>
                   </v-row>
@@ -116,9 +116,20 @@
             </v-row>
           </template>
           <template v-else>
-            <v-img
-              src="@/assets/avada_kedavra.png"
-            ></v-img>
+            <v-card variant="outlined">
+              <v-card-actions>
+                <v-img
+                  src="@/assets/avada_kedavra.png"
+                  cover
+                ></v-img>
+              </v-card-actions>
+              <v-card-text class="text-caption font-italic">
+                Your evaluation report will be delivered to your supervisor immediately. An action will be taken for or against you, based on the results.
+              </v-card-text>
+              <v-card-text class="font-weight-medium font-italic">
+                Thank you for taking part in this experimental personality test! Good luck!
+              </v-card-text>
+            </v-card>
           </template>
         </v-col>
       </v-row>
