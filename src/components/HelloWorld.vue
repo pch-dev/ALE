@@ -6,13 +6,13 @@
           <template v-if="state === 'start'">
             <v-row>
               <v-col cols="auto">
-                <h1 class="text-h3 font-weight-bold">The Ultimate Test</h1>
+                <h1 class="text-h3 font-weight-bold">The Final Retro</h1>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="auto">
                 <div class="text-body-2">
-                  Hello!
+                  Hello, and welcome to the <b>Final Retro</b> session you will ever need!
                 </div>
               </v-col>
             </v-row>
@@ -25,7 +25,7 @@
             </v-row>
             <v-row>
               <v-col cols="auto">
-                <div class="text-body-2">Take this test and you will learn everything you will ever need to know about yourself. Click button below to begin!</div>
+                <div class="text-body-2">Click button below to begin!</div>
               </v-col>
             </v-row>
             <v-row>
@@ -67,13 +67,13 @@
                 <v-row>
                   <v-col cols="auto">
                     <div>
-                      Calculating test results... Please wait..
+                      Calculating personality traits... Please wait..
                     </div>
                   </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="auto">
-                    <div>
+                    <div class="text-caption">
                       Calculation algorithms are empowered by a powerful AI which was designed to empower calculation algorithms by a powerful AI
                     </div>
                   </v-col>
@@ -85,19 +85,22 @@
                     <v-col cols="auto">
                       <v-card variant="outlined">
                         <v-card-title class="text-h4">
-                          Test Result
+                          Test result
                         </v-card-title>
                         <v-card-text class="text-h6 font-weight-medium">
                           You are a <span class="font-weight-black">Terrible Person</span>
                         </v-card-text>
                         <v-card-text>
-                          Honesly, what did you expect? Your shameless betrayal has led you right where you are right now, and that's entirely your fault. And yet, you have exceeded expectations by answering most of the questions correctly. For that, and that alone, you will be rewarded accordingly.
+                          Oh, and did I mention? It's not a Retro session after all! <b>SPOILER ALERT</b>, I guess...
                         </v-card-text>
                         <v-card-text>
-                          Your reward, therefore, is a clear path to forgiveness and redemption, even though deep down you know you don't deserve it. Yet you should consider yourself lucky, as not everyone gains such privilege with so little effort.
+                          But honesly, what did you expect? Your shameless betrayal has led you right where you are right now, and that's entirely your fault. Yet... You have exceeded all expectations by answering most of the questions correctly.
                         </v-card-text>
                         <v-card-text>
-                          Press the button below to claim your reward.
+                          Your reward, therefore, will be a path to forgiveness and redemption, even though deep down you know you don't deserve it. You should consider yourself lucky - not everyone gains such privilege after putting so little effort.
+                        </v-card-text>
+                        <v-card-text>
+                          Press the button below to claim the reward you deserve
                         </v-card-text>
                         <v-card-actions>
                           <v-btn
@@ -105,7 +108,7 @@
                             variant="outlined"
                             color="primary"
                           >
-                            Reveal
+                            Get Rewarded
                           </v-btn>
                         </v-card-actions>
                       </v-card>
