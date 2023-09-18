@@ -1,7 +1,5 @@
 # first stage builds vue
 FROM node:16 as build-stage
-
-USER root
 	# Set environment variables
 ENV APP_DIR=/app
 # Create app directory
@@ -19,6 +17,8 @@ RUN npm install
  
 # Expose port
 EXPOSE 3000
- 
+
+RUN chmod 777 /app/node_modules"
+
 # Run vite
 CMD ["vite", "--port", "3000"]
