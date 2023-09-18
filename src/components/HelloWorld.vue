@@ -19,7 +19,14 @@
             <v-row>
               <v-col cols="auto">
                 <div class="text-body-2">
-                  My name is <span class="font-weight-black">{{ guid }}</span>. I will be your GUID on this journey!
+                  My name is <span class="font-weight-black">{{ guid }}</span>
+                </div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="auto">
+                <div class="text-body-2">
+                  I will be your GUID on this journey!
                 </div>
               </v-col>
             </v-row>
@@ -100,7 +107,7 @@
                           Your reward, therefore, will be a path to forgiveness and redemption, even though deep down you know you don't deserve it. You should consider yourself lucky - not everyone gains such privilege after putting so little effort.
                         </v-card-text>
                         <v-card-text>
-                          Press the button below to claim the reward you deserve
+                          Press the button below to claim reward you don't deserve
                         </v-card-text>
                         <v-card-actions>
                           <v-btn
@@ -193,22 +200,22 @@
               {
                 value: 1,
                 label: "Maksim",
-                alertMessage: "Ah yes, that explains very well, why your pull requests took forever to get approved, right? Wrong!"
+                alertMessage: "Ah yes, that does explain why your pull requests took forever to get approved, right? Wrong!"
               },
               {
                 value: 2,
-                label: "Jonas",
-                alertMessage: "If you don't believe this yourself, how can anybody else?"
+                label: "Neringa",
+                alertMessage: "Your favorite colleague who wasn't even mentioned in your goodbye letter. That is just as convincing as.. Wait, there isn't anything!"
               },
               {
                 value: 3,
                 label: "Kasparas",
-                alertMessage: "That was clearly a miss-click. You should correct this before it's too late"
+                alertMessage: "Let's face it - you clicked on this just out of sheer curiosity"
               },
               {
                 value: 4,
                 label: "Pavel",
-                alertMessage: "It is almost adorable how much you favor this one person over everyone else. You should know better than picking favorites at a workplace. It is toxic behavior"
+                alertMessage: "It is almost adorable how much you favor this one person over everyone else. But you should know better than picking favorites at the workplace. It is, after all, toxic behavior"
               }
             ],
             correctAnswer: 4
@@ -284,17 +291,17 @@
               {
                 value: 2,
                 label: "I am selfish and greedy. I did this for the money",
-                alertMessage: "If it wasn't so overwhelmingly typical, I would say you are lying to me"
+                alertMessage: "If it wasn't so overwhelmingly common and typical, I could have sworn that you are lying."
               },
               {
                 value: 3,
-                label: "I feared for my own life and had to run away",
-                alertMessage: "Aren't we all? What was even the point? If you wanted to outrun the inevitable, you should have found shelter in a company that deals with spaceships, not planes"
+                label: "I was being harassed. I had to run away",
+                alertMessage: "Aren't we all? If you wanted to outrun the inevitable, you should have found shelter in a company that deals with spaceships, not planes. Besides, should we review your answer to the previous question?"
               },
               {
                 value: 4,
                 label: "I did it for fun",
-                alertMessage: "I'm sure the paperwork was fun. But not as fun as the next 3 months fighting for survival. What? You didn't think this through? Oh well, there is no way back now"
+                alertMessage: "I'm sure the paperwork was fun. But not as fun as the next 3 months fighting for survival. What? Don't tell me you didn't think this through. Oh well..."
               }
             ]
           }
