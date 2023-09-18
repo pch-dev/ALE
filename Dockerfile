@@ -1,6 +1,7 @@
 # first stage builds vue
 FROM node:16 as build-stage
 
+USER root
 	# Set environment variables
 ENV APP_DIR=/app
 # Create app directory
