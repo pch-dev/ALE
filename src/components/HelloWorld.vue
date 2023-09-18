@@ -19,7 +19,7 @@
             <v-row>
               <v-col cols="auto">
                 <div class="text-body-2">
-                  My name is <span class="font-weight-black">{{ guid }}</span>. I will be your GUID through this journey!
+                  My name is <span class="font-weight-black">{{ guid }}</span>. I will be your GUID on this journey!
                 </div>
               </v-col>
             </v-row>
