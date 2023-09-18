@@ -6,12 +6,26 @@
           <template v-if="state === 'start'">
             <v-row>
               <v-col cols="auto">
-                <h1 class="text-h3 font-weight-bold">The Ultimate Personality Test</h1>
+                <h1 class="text-h3 font-weight-bold">The Ultimate Test</h1>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="auto">
-                <div class="text-body-2 font-weight-light mb-n1">Take this test and you will learn everything you will ever need to know about yourself!</div>
+                <div class="text-body-2">
+                  Hello!
+                </div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="auto">
+                <div class="text-body-2">
+                  My name is <span class="font-weight-black">{{ guid }}</span>. I will be your GUID through this journey!
+                </div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="auto">
+                <div class="text-body-2">Take this test and you will learn everything you will ever need to know about yourself. Click button below to begin!</div>
               </v-col>
             </v-row>
             <v-row>
@@ -80,7 +94,7 @@
                           Honesly, what did you expect? Your shameless betrayal has led you right where you are right now, and that's entirely your fault. And yet, you have exceeded expectations by answering most of the questions correctly. For that, and that alone, you will be rewarded accordingly.
                         </v-card-text>
                         <v-card-text>
-                          Your reward - a clear path to forgiveness and redemption, even though deep down you know you don't deserve it. Yet you should consider yourself lucky, as not everyone gains such privilege with so little effort.
+                          Your reward, therefore, is a clear path to forgiveness and redemption, even though deep down you know you don't deserve it. Yet you should consider yourself lucky, as not everyone gains such privilege with so little effort.
                         </v-card-text>
                         <v-card-text>
                           Press the button below to claim your reward.
@@ -94,20 +108,6 @@
                             Reveal
                           </v-btn>
                         </v-card-actions>
-                        <!-- <template v-if="isRevealed">
-                          <v-card-actions>
-                            <v-img
-                              src="@/assets/avada_kedavra.png"
-                              cover
-                            ></v-img>
-                          </v-card-actions>
-                          <v-card-text>
-                            Your evaluation report will be delivered to your supervisor immediately. An action will be taken for or against you, based on the results.
-                          </v-card-text>
-                          <v-card-text>
-                            Thank you for taking part in this experimental personality test! Good luck!
-                          </v-card-text>
-                        </template> -->
                       </v-card>
                     </v-col>
                   </v-row>
@@ -127,7 +127,7 @@
                 Your evaluation report will be delivered to your supervisor immediately. An action will be taken for or against you, based on the results.
               </v-card-text>
               <v-card-text class="font-weight-medium font-italic">
-                Thank you for taking part in this experimental personality test! Good luck!
+                Thank you for taking part in this experimental test! Good luck!
               </v-card-text>
             </v-card>
           </template>
@@ -148,10 +148,13 @@
       return {
         isRevealed: false,
         isLoading: false,
-        state: "start", // questions, results, reward
+        state: "start",
         currentQuestionId: 1,
         questionsCount: computed(() => this.questions.length),
         isFinalQuestion: computed(() => this.currentQuestionId === this.questionsCount),
+        guid: computed(() => ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        )),
         questions: [
           {
             id: 1,
