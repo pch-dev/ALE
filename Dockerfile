@@ -9,7 +9,7 @@ RUN npm run build
 # Stage 2: Serve Vue app with Nginx
 FROM nginx:1.25.1 as prod-stage
 
-RUN chmod g+rwx /var/cache/nginx /var/run /var/long/nginx
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 WORKDIR /app
 
