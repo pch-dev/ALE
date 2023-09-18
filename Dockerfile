@@ -8,10 +8,11 @@ RUN npm run build
 
 # Stage 2: Serve Vue app with Nginx
 FROM nginx:1.25.1 as prod-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY --chown=nginx:0 --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
 
-RUN chmod -R 775 /app
-RUN chmod -R 775 /src
+USER 0 
+RUN chmod g+w /app && chmod -R 660 /app/* 
+USER nginx
 
 CMD ["nginx", "-g", "daemon off;"]
