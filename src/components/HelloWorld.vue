@@ -53,7 +53,7 @@
                 <v-row>
                   <v-col cols="auto">
                     <div>
-                      Calculating test results...
+                      Calculating test results... Please wait..
                     </div>
                   </v-col>
                 </v-row>
@@ -74,7 +74,7 @@
                           Test Result
                         </v-card-title>
                         <v-card-text class="text-h6 font-weight-medium">
-                          You are a <span class="font-weight-black">terrible person</span>
+                          You are a <span class="font-weight-black">Terrible Person</span>
                         </v-card-text>
                         <v-card-text>
                           Honesly, what did you expect? Your shameless betrayal has led you right where you are right now, and that's entirely your fault. And yet, you have exceeded expectations by answering most of the questions correctly. For that, and that alone, you will be rewarded accordingly.
@@ -160,22 +160,22 @@
               {
                 value: 1,
                 label: "Danske",
-                alertMessage: "It's not even remotely believable. Why don't you give it another shot?"
+                alertMessage: "There is no need to lie. Everybody knows this is not it"
               },
               {
                 value: 2,
                 label: "SEB",
-                alertMessage: "Good job! I knew you would get this one right."
+                alertMessage: "Oh, you got something right, what a remarkable surprise"
               },
               {
                 value: 3,
                 label: "Doclogix",
-                alertMessage: "Ha-ha-ha. Would be funny, if it wasn't sad."
+                alertMessage: "Ha-ha.. Would be funny if it wasn't sad"
               },
               {
                 value: 4,
-                label: "Wherever the f*** I currently work",
-                alertMessage: "Now that can't be right, right? You might want to reconsider."
+                label: "My current horrible workplace",
+                alertMessage: "You are simply.. Wrong"
               }
             ],
             correctAnswer: 2
@@ -187,7 +187,7 @@
               {
                 value: 1,
                 label: "Maksim",
-                alertMessage: "After everything you've been through, that's your choice?"
+                alertMessage: "Ah yes, that explains very well, why your pull requests took forever to get approved, right? Wrong!"
               },
               {
                 value: 2,
@@ -197,12 +197,12 @@
               {
                 value: 3,
                 label: "Kasparas",
-                alertMessage: "That was clearly a miss-click. You should correct this before it's too late."
+                alertMessage: "That was clearly a miss-click. You should correct this before it's too late"
               },
               {
                 value: 4,
                 label: "Pavel",
-                alertMessage: "It is almost adorable how much you favor this one person over everyone else."
+                alertMessage: "It is almost adorable how much you favor this one person over everyone else. You should know better than picking favorites at a workplace. It is toxic behavior"
               }
             ],
             correctAnswer: 4
@@ -231,15 +231,15 @@
               },
               {
                 value: 4,
-                label: "I've made a terrible mistake, I understand it now and regret my decision entirely.",
-                alertMessage: "See, wasn't that hard! There is no shame in admitting one's mistakes. Forgiveness and redemption, on the other hand, will be much more difficult to acquire. Better start it sooner than later!"
+                label: "I've made a terrible mistake, I am very miserable and regret my decision entirely.",
+                alertMessage: "See, wasn't that hard. There is no shame in admitting your own mistakes, even the most terrible ones. Forgiveness and redemption, on the other hand, will be much more difficult to acquire."
               }
             ],
             correctAnswer: 4
           },
           {
             id: 4,
-            question: "What do you appreciate the most in your colleagues?",
+            question: "What do you value the most in your colleagues?",
             autoCorrect: true,
             options: [
               {
@@ -255,7 +255,7 @@
               {
                 value: 3,
                 label: "Harassment",
-                alertMessage: "Ah.. That is truly the purest form of social engagement, regardless of what company policies say"
+                alertMessage: "That is truly the most genuine form of social engagement, regardless of what company policies say"
               },
               {
                 value: 4,
@@ -273,22 +273,22 @@
               {
                 value: 1,
                 label: "I enjoy causing others pain",
-                alertMessage: "Like the pain you caused your own laptop when you spilled wine all over it?"
+                alertMessage: "Most unusual, yet not surprising at all, considering your overall history, not just recent events"
               },
               {
                 value: 2,
                 label: "I am selfish and greedy. I did this for the money",
-                alertMessage: "The overwhelming amount of \"Typical\" in this situation is nothing but depressing"
+                alertMessage: "If it wasn't so overwhelmingly typical, I would say you are lying to me"
               },
               {
                 value: 3,
                 label: "I feared for my own life and had to run away",
-                alertMessage: "Then perhaps you should have found shelter in a company that builds spaceships."
+                alertMessage: "Aren't we all? What was even the point? If you wanted to outrun the inevitable, you should have found shelter in a company that deals with spaceships, not planes"
               },
               {
                 value: 4,
                 label: "I did it for fun",
-                alertMessage: "I'm sure the paperwork was fun. I'm also sure that planes falling from the sky will be just as fun. Can't wait to read the news."
+                alertMessage: "I'm sure the paperwork was fun. But not as fun as the next 3 months fighting for survival. What? You didn't think this through? Oh well, there is no way back now"
               }
             ]
           }
