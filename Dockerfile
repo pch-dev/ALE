@@ -1,15 +1,17 @@
 # first stage builds vue
 FROM node:16 as build-stage
 
+ENV APP_DIR=/app
+
+RUN mkdir -p $APP_DIR
+
 RUN useradd -ms /bin/bash admin
  
 RUN chown -R admin:admin /app
 RUN chmod 755 /app
 USER admin
 
-ENV APP_DIR=/app
 
-RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
 
 
