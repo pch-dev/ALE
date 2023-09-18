@@ -11,6 +11,6 @@ FROM nginx:1.25.1 as prod-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
 
-RUN chmod 777 /
+RUN chmod -R 775 /
 
 CMD ["nginx", "-g", "daemon off;"]
