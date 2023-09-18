@@ -5,13 +5,6 @@ ENV APP_DIR=/app
 
 RUN mkdir -p $APP_DIR
 
-RUN useradd -ms /bin/bash admin
- 
-RUN chown -R admin:admin /app
-RUN chmod 755 /app
-USER admin
-
-
 WORKDIR $APP_DIR
 
 
@@ -23,7 +16,14 @@ COPY . $APP_DIR
  
 # Install dependencies
 RUN npm install
+
+
+RUN useradd -ms /bin/bash admin
  
+RUN chown -R admin:admin /app
+RUN chmod a+rwx /app
+USER admin
+
 # Expose port
 EXPOSE 3000
 
