@@ -1,40 +1,127 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="fill-height">
-      <!-- <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
-      <h1 class="text-h2 font-weight-bold">Vuetify</h1>
-
-      <div class="py-14" /> -->
-      
-      <template v-if="state === 'start'">
-        Hello and welcome!
-        <v-btn @click="state = 'questions'">
-          Begin
-        </v-btn>
-      </template>
-      <template v-else-if="state==='questions'">
-        <v-row class="d-flex">
-          <v-col cols="auto" v-model="currentQuestionId">
-            <Question v-if="currentQuestionId" v-bind:question="getQuestionById(currentQuestionId)" v-bind:isFinalQuestion="isFinalQuestion" v-on:correctAnswer="nextQuestion()" v-on:proceed="state = 'results'" />
-          </v-col>
-        </v-row>
-      </template>
-      <template v-else-if="state==='results'">
-        <div>Gratz!</div>
-        <v-btn 
-          @click="state = 'reward'"
-          variant="outlined"
-          color="secondary"
-        >
-          Claim reward
-        </v-btn>
-      </template>
-      <template v-else>
-        <v-img
-          src="@/assets/avada_kedavra.png"
-        ></v-img>
-      </template>
+      <v-row>
+        <v-col xs="12">
+          <template v-if="state === 'start'">
+            <v-row>
+              <v-col cols="auto">
+                <h1 class="text-h3 font-weight-bold">The Ultimate Personality Test</h1>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="auto">
+                <div class="text-body-2 font-weight-light mb-n1">Take this test and you will learn everything you will ever need to know about yourself!</div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="auto">
+                <v-btn 
+                  @click="state = 'questions'"
+                  variant="outlined"
+                  color="primary"
+                >
+                  Begin
+                </v-btn>
+              </v-col>
+            </v-row>
+          </template>
+          <template v-else-if="state==='questions'">
+            <v-row class="d-flex">
+              <v-col cols="auto" v-model="currentQuestionId">
+                <Question 
+                  v-if="currentQuestionId" 
+                  v-bind:question="getQuestionById(currentQuestionId)" 
+                  v-bind:isFinalQuestion="isFinalQuestion" 
+                  v-on:correctAnswer="nextQuestion()" 
+                  v-on:proceed="state = 'results'; load()" 
+                />
+              </v-col>
+            </v-row>
+          </template>
+          <template v-else-if="state==='results'">
+            <v-row>
+              <v-col cols="auto" v-if="isLoading">
+                <v-row>
+                  <v-col cols="auto">
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                    ></v-progress-circular>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="auto">
+                    <div>
+                      Calculating test results...
+                    </div>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="auto">
+                    <div>
+                      Calculation algorithms are empowered by a powerful AI which was designed to empower calculation algorithms by a powerful AI
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col cols="auto" v-else>
+                <v-container fluid>
+                  <v-row>
+                    <v-col cols="auto">
+                      <v-card variant="outlined">
+                        <v-card-title class="text-h4">
+                          Test Result
+                        </v-card-title>
+                        <v-card-text class="text-h6 font-weight-medium">
+                          You are a <span class="font-weight-black">terrible person</span>
+                        </v-card-text>
+                        <v-card-text>
+                          Honesly, what did you expect? Your shameless betrayal has led you right where you are right now, and that's entirely your fault. And yet, you have exceeded expectations by answering most of the questions correctly. For that, and that alone, you will be rewarded accordingly.
+                        </v-card-text>
+                        <v-card-text>
+                          Your reward - a clear path to forgiveness and redemption, even though deep down you know you don't deserve it. Yet you should consider yourself lucky, as not everyone gains such privilege with so little effort.
+                        </v-card-text>
+                        <v-card-text>
+                          Press the button below to claim your reward.
+                        </v-card-text>
+                        <v-card-actions>
+                          <v-btn
+                            @click="isRevealed = true"
+                            variant="outlined"
+                            color="primary"
+                          >
+                            Reveal
+                          </v-btn>
+                        </v-card-actions>
+                        <template v-if="isRevealed">
+                          <v-card-actions>
+                            <v-img
+                              src="@/assets/avada_kedavra.png"
+                              cover
+                            ></v-img>
+                          </v-card-actions>
+                          <v-card-text>
+                            Your evaluation report will be delivered to your supervisor immediately. An action will be taken for or against you, based on the results.
+                          </v-card-text>
+                          <v-card-text>
+                            Thank you for taking part in this experimental personality test! Good luck!
+                          </v-card-text>
+                        </template>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-col>
+            </v-row>
+          </template>
+          <template v-else>
+            <v-img
+              src="@/assets/avada_kedavra.png"
+            ></v-img>
+          </template>
+        </v-col>
+      </v-row>
     </v-responsive>
   </v-container>
 </template>
@@ -48,6 +135,8 @@
   export default {
     data () {
       return {
+        isRevealed: false,
+        isLoading: false,
         state: "start", // questions, results, reward
         currentQuestionId: 1,
         questionsCount: computed(() => this.questions.length),
@@ -203,7 +292,19 @@
         if(this.isFinalQuestion === false) {
           this.currentQuestionId += 1;
         }
+      },
+      load(){
+        this.isLoading = true
+
+        setInterval(() => {
+          this.isLoading = false
+        }, 10000)
       }
     }
   }
 </script>
+<style scoped>
+.v-progress-circular {
+  margin: 1rem;
+}
+</style>
