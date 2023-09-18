@@ -94,6 +94,7 @@
                         <v-card-title class="text-h4">
                           Test result
                         </v-card-title>
+                        <v-card-subtitle></v-card-subtitle>
                         <v-card-text class="text-h6 font-weight-medium">
                           You are a <span class="font-weight-black">Terrible Person</span>
                         </v-card-text>
